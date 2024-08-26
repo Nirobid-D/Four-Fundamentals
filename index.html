@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four Fundamentals Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: 0 auto; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input, select { padding: 8px; width: 100%; }
+        .questions-container {
+            max-height: 400px; /* Adjust height as needed */
+            overflow-y: auto; /* Enable vertical scrolling */
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #f9f9f9;
+        }
+        .question { 
+            margin-bottom: 15px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+        }
+        .question p { 
+            margin: 0;
+            width: 80%;
+        }
+        .question input {
+            width: 100px;
+            text-align: center;
+        }
+        .correct { color: green; }
+        .incorrect { color: red; }
+        button { padding: 10px 15px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Math Game</h1>
+        <div class="form-group">
+            <label for="numQuestions">Number of Questions:</label>
+            <input type="number" id="numQuestions" min="1" max="100" value="5">
+        </div>
+        <div class="form-group">
+            <label for="operation">Choose Operation:</label>
+            <select id="operation">
+                <option value="add">Addition</option>
+                <option value="subtract">Subtraction</option>
+                <option value="multiply">Multiplication</option>
+                <option value="divide">Division</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="numDigits">Number of Digits:</label>
+            <input type="number" id="numDigits" min="1" max="5" value="2">
+        </div>
+        <div class="form-group" id="addendsGroup" style="display: none;">
+            <label for="numAddends">Number of Addends:</label>
+            <input type="number" id="numAddends" min="2" max="10" value="2">
+        </div>
+        <div class="form-group" id="subtrahendsGroup" style="display: none;">
+            <label for="numSubtrahends">Number of Subtrahends:</label>
+            <input type="number" id="numSubtrahends" min="2" max="10" value="2">
+        </div>
+        <div class="form-group" id="digitsFactorGroup" style="display: none;">
+            <label for="numDigitsFactor1">Digits for Factor 1:</label>
+            <input type="number" id="numDigitsFactor1" min="1" max="5" value="2">
+            <label for="numDigitsFactor2">Digits for Factor 2:</label>
+            <input type="number" id="numDigitsFactor2" min="1" max="5" value="2">
+        </div>
+        <div class="form-group" id="digitsDividendGroup" style="display: none;">
+            <label for="numDigitsDividend">Digits for Dividend:</label>
+            <input type="number" id="numDigitsDividend" min="1" max="5" value="2">
+            <label for="numDigitsDivisor">Digits for Divisor:</label>
+            <input type="number" id="numDigitsDivisor" min="1" max="5" value="2">
+        </div>
+        <button onclick="generateQuestions()">Generate Questions</button>
+        <div id="questions" class="questions-container"></div>
+        <button onclick="checkAnswers()">Check Answers</button>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
